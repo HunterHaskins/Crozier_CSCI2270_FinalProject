@@ -37,6 +37,7 @@ class Trail
         void moveOn();
         void setDifficulty();
         string getFatigue(int fatigue1);
+        void checkInput();
     protected:
     private:
         place * current;

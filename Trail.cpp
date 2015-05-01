@@ -522,30 +522,24 @@ void Trail::results(bool win)
             cout<<"Your party ran out of fuel, and was stranded in the wasteland."<<endl;
             cout<<"GAME OVER"<<endl;
             cout<<""<<endl;
-            cout<<"Press ENTER to quit."<<endl;
-            string input;
-            cin>>input;
-            cin.ignore();
+
+            checkInput();
         }
         else if (fatigue < 0)
         {
             cout<<"Everyone in the party collapsed from exhaustion, and can't go on."<<endl;
             cout<<"GAME OVER"<<endl;
             cout<<""<<endl;
-            cout<<"Press ENTER to quit."<<endl;
-            string input;
-            cin>>input;
-            cin.ignore();
+
+            checkInput();
         }
         else
         {
             cout<<"Everyone in the party has died in the wasteland."<<endl;
             cout<<"GAME OVER"<<endl;
             cout<<""<<endl;
-            cout<<"Press ENTER to quit."<<endl;
-            string input;
-            cin>>input;
-            cin.ignore();
+
+            checkInput();
         }
     }
 }
@@ -556,6 +550,20 @@ void Trail::results(bool win)
 //there is also a bonus for choosing a higher difficulty. If the player ran out
 //of fuel it says there were stranded in the wilderness, if they party all died,
 //they also lose, and if they get too tired, they collapse and die as well.
+
+void Trail::checkInput()
+{
+    cout<<"Press y to quit."<<endl;
+    string input;
+    cin>>input;
+    cin.ignore();
+    if (input != "y")
+    {
+        cout<<"incorrect input"<<endl;
+        checkInput();
+    }
+
+}
 
 void Trail::refuel()
 {
